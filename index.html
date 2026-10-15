@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canarian Barber — Barbería en Melilla</title>
+<meta name="description" content="Canarian Barber, barbería en la Plaza de la Goleta (Melilla). Fades, cortes a tijera, afeitado clásico, diseños, limpieza facial y cortes para niños. 5,0 en Booksy con 267 reseñas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro: #0c0c0c;
+    --negro-2: #151515;
+    --negro-3: #1d1d1d;
+    --arena: #e6d3ad;
+    --arena-osc: #c9ae7a;
+    --mar: #1aa39a;
+    --blanco: #f7f5f0;
+    --gris: #96938c;
+    --linea: rgba(230,211,173,.18);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--negro); color: var(--blanco); line-height: 1.65; overflow-x: hidden; }
+  h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; letter-spacing: .3px; }
+  em { font-style: italic; color: var(--arena); }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  header {
+    position: fixed; inset: 0 0 auto 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 6%; background: rgba(12,12,12,.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--linea);
+  }
+  .marca { display: flex; align-items: center; gap: 12px; }
+  .marca img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; }
+  .marca span { font-family: 'DM Serif Display', serif; font-size: 1.3rem; letter-spacing: 2px; }
+  nav ul { list-style: none; display: flex; gap: 28px; align-items: center; }
+  nav a { font-size: .74rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gris); transition: color .2s; }
+  nav a:hover { color: var(--arena); }
+  nav .nav-cta { color: var(--negro); background: var(--arena); padding: 9px 18px; font-weight: 700; border-radius: 4px; white-space: nowrap; }
+  nav .nav-cta:hover { color: var(--negro); background: var(--blanco); }
+
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 130px 6% 80px; overflow: hidden; isolation: isolate; }
+  .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: url('img/local.jpg') center/cover no-repeat; filter: grayscale(1) brightness(.45); }
+  .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(12,12,12,.95) 0%, rgba(12,12,12,.7) 50%, rgba(12,12,12,.35) 100%); }
+  .hero-in { display: grid; grid-template-columns: 1.2fr .8fr; gap: 50px; align-items: center; width: 100%; max-width: 1180px; margin: 0 auto; }
+  .hero small { font-size: .74rem; letter-spacing: 4px; text-transform: uppercase; color: var(--arena); }
+  .hero h1 { font-size: clamp(3rem, 7.5vw, 6rem); line-height: .98; margin: 14px 0 20px; }
+  .hero p { color: #d8d4cb; font-size: 1.06rem; max-width: 500px; margin-bottom: 32px; font-weight: 300; }
+  .botones { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; background: var(--arena); color: var(--negro); padding: 15px 30px; font-weight: 700; font-size: .78rem; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; transition: transform .2s, background .2s; }
+  .btn:hover { transform: translateY(-2px); background: var(--blanco); }
+  .btn-linea { background: transparent; color: var(--blanco); border: 1px solid rgba(230,211,173,.6); }
+  .btn-linea:hover { background: rgba(230,211,173,.12); }
+  .hero-logo { width: 100%; max-width: 360px; margin-left: auto; border-radius: 50%; box-shadow: 0 0 0 1px var(--linea), 0 30px 70px rgba(0,0,0,.6); }
+
+  .franja { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); background: var(--negro-2); }
+  .franja div { padding: 22px 14px; text-align: center; border-right: 1px solid var(--linea); }
+  .franja div:last-child { border-right: 0; }
+  .franja b { display: block; font-family: 'DM Serif Display', serif; font-size: 2rem; font-weight: 400; color: var(--arena); line-height: 1.1; }
+  .franja span { font-size: .7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gris); }
+
+  section { padding: 100px 6%; max-width: 1180px; margin: 0 auto; }
+  .titulillo { display: block; text-align: center; font-size: .72rem; letter-spacing: 5px; text-transform: uppercase; color: var(--mar); margin-bottom: 10px; font-weight: 600; }
+  .titulo { text-align: center; font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 50px; line-height: 1.05; }
+
+  .sobre { display: grid; grid-template-columns: 1.05fr 1fr; gap: 60px; align-items: center; }
+  .sobre img { width: 100%; aspect-ratio: 4/3; object-fit: cover; filter: grayscale(1) contrast(1.05); border-radius: 4px; }
+  .sobre h2 { font-size: clamp(2.2rem, 4.4vw, 3.2rem); line-height: 1.05; margin-bottom: 18px; }
+  .sobre p { color: #d0ccc2; font-weight: 300; margin-bottom: 14px; }
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+  .duo div { border: 1px solid var(--linea); padding: 16px 18px; border-radius: 4px; }
+  .duo b { display: block; font-family: 'DM Serif Display', serif; font-size: 1.5rem; font-weight: 400; color: var(--arena); }
+  .duo span { font-size: .84rem; color: var(--gris); }
+
+  .fondo-2 { background: var(--negro-2); border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
+  .carta { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .bloque { background: var(--negro-3); border: 1px solid var(--linea); border-radius: 6px; padding: 30px 28px; }
+  .bloque h3 { font-size: 1.7rem; margin-bottom: 8px; }
+  .bloque h3 small { font-family: 'Inter', sans-serif; font-size: .72rem; color: var(--mar); letter-spacing: 2px; text-transform: uppercase; margin-left: 8px; }
+  .fila { display: flex; justify-content: space-between; gap: 14px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .fila:last-child { border-bottom: 0; }
+  .fila small { display: block; color: var(--gris); font-size: .8rem; line-height: 1.45; margin-top: 2px; }
+  .fila b { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.25rem; white-space: nowrap; color: var(--arena); }
+  .destacado { border-color: var(--arena); background: linear-gradient(140deg, rgba(230,211,173,.1), transparent 60%), var(--negro-3); }
+
+  .galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .galeria img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; transition: transform .4s; }
+  .galeria img:hover { transform: scale(1.03); }
+
+  .opiniones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .op { border: 1px solid var(--linea); border-radius: 6px; padding: 26px 24px; background: var(--negro-3); }
+  .op .est { color: var(--arena); letter-spacing: 3px; margin-bottom: 10px; }
+  .op p { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.2rem; line-height: 1.4; margin-bottom: 14px; }
+  .op cite { font-style: normal; color: var(--gris); font-size: .8rem; letter-spacing: 1px; }
+
+  .info { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+  .horario { width: 100%; border-collapse: collapse; }
+  .horario td { padding: 12px 4px; border-bottom: 1px solid var(--linea); }
+  .horario td:last-child { text-align: right; color: #d0ccc2; }
+  .horario tr.cerrado td:last-child { color: var(--gris); }
+  .domingo { display: inline-block; background: var(--mar); color: var(--negro); padding: 6px 14px; border-radius: 30px; font-weight: 700; font-size: .82rem; margin-bottom: 16px; }
+  .dir { margin-top: 18px; color: #d0ccc2; }
+  .dir b { color: var(--blanco); font-weight: 600; }
+  .mapa { border: 1px solid var(--linea); border-radius: 6px; overflow: hidden; }
+  .mapa img { width: 100%; filter: grayscale(.6); }
+
+  .cta { text-align: center; padding: 110px 6%; position: relative; overflow: hidden; isolation: isolate; border-top: 1px solid var(--linea); }
+  .cta::before { content: ""; position: absolute; inset: 0; z-index: -2; background: url('img/barbero.jpg') center/cover no-repeat; filter: grayscale(1) brightness(.3); }
+  .cta h2 { font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1; margin-bottom: 14px; }
+  .cta p { color: #d8d4cb; max-width: 460px; margin: 0 auto 30px; font-weight: 300; }
+  .cta .botones { justify-content: center; }
+
+  footer { text-align: center; padding: 26px 6%; color: #6f6c66; font-size: .8rem; border-top: 1px solid var(--linea); }
+
+  .wa-flotante { position: fixed; right: 22px; bottom: 22px; z-index: 120; width: 58px; height: 58px; border-radius: 50%; background: #25d366; display: grid; place-items: center; box-shadow: 0 10px 25px rgba(0,0,0,.35); }
+  .wa-flotante svg { width: 30px; height: 30px; fill: #fff; }
+
+  @media (max-width: 900px) {
+    nav ul li:not(:last-child) { display: none; }
+    .marca span { font-size: 1.05rem; }
+    .hero-in { grid-template-columns: 1fr; gap: 36px; }
+    .hero-logo { max-width: 220px; margin: 0; }
+    .hero::after { background: linear-gradient(180deg, rgba(12,12,12,.75), rgba(12,12,12,.95)); }
+    .franja { grid-template-columns: 1fr 1fr; }
+    .franja div:nth-child(2) { border-right: 0; }
+    .franja div:nth-child(-n+2) { border-bottom: 1px solid var(--linea); }
+    .sobre, .carta, .opiniones, .info { grid-template-columns: 1fr; }
+    .sobre { gap: 40px; }
+    .galeria { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 76px 6%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="marca" href="#inicio"><img src="img/logo.jpg" alt="Canarian Barber"><span>CANARIAN BARBER</span></a>
+  <nav>
+    <ul>
+      <li><a href="#barberia">Barbería</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#trabajos">Trabajos</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+      <li><a class="nav-cta" href="https://wa.me/34610976606" target="_blank" rel="noopener">Pedir cita</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="inicio" style="max-width:none;">
+  <div class="hero-in">
+    <div>
+      <small>Barbería · Plaza de la Goleta · Melilla</small>
+      <h1>Cortes con <em>alma</em><br>de barbería</h1>
+      <p>Fades, cortes a tijera, afeitado clásico con toalla caliente y limpieza facial. Abrimos también los domingos.</p>
+      <div class="botones">
+        <a class="btn" href="https://wa.me/34610976606" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+        <a class="btn btn-linea" href="#servicios">Ver precios</a>
+      </div>
+    </div>
+    <img class="hero-logo" src="img/logo.jpg" alt="Logotipo de Canarian Barber, est. MMXXI">
+  </div>
+</section>
+
+<div class="franja">
+  <div><b>5,0 ★</b><span>En Booksy</span></div>
+  <div><b>267</b><span>Reseñas</span></div>
+  <div><b>2021</b><span>Desde</span></div>
+  <div><b>Domingo</b><span>También abierto</span></div>
+</div>
+
+<section id="barberia">
+  <div class="sobre">
+    <img src="img/barbero.jpg" alt="Barbero de Canarian Barber trabajando">
+    <div>
+      <span class="titulillo" style="text-align:left;">La barbería</span>
+      <h2>Cercanos, detallistas y <em>sin prisas</em></h2>
+      <p>En Canarian Barber cuidamos cada detalle del corte: degradados limpios, cortes trabajados a tijera, diseños y barbas perfiladas a navaja.</p>
+      <p>Familias, clientes de siempre y gente que viene por primera vez: aquí todos salen como si llevasen toda la vida viniendo.</p>
+      <div class="duo">
+        <div><b>Abdel</b><span>Fades, tijera, barba y afeitado clásico</span></div>
+        <div><b>Imen</b><span>Especialista en cortes de niños</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fondo-2">
+<section id="servicios">
+  <span class="titulillo">Carta de servicios</span>
+  <h2 class="titulo">Servicios y precios</h2>
+  <div class="carta">
+    <div class="bloque">
+      <h3>Cortes</h3>
+      <div class="fila"><div>Corte fade<small>Máquina y tijera en la parte de arriba · 30 min</small></div><b>12 €</b></div>
+      <div class="fila"><div>Corte a tijera<small>Mullet, texturizados, cortes naturales · 45 min</small></div><b>16,50 €</b></div>
+      <div class="fila"><div>Corte + diseño<small>Líneas o dibujos personalizados · 45 min</small></div><b>16,50 €</b></div>
+      <div class="fila"><div>Corte + cejas con navaja<small>45 min</small></div><b>16,50 €</b></div>
+      <div class="fila"><div>Corte + lavado<small>Con lavado y peinado · 45 min</small></div><b>16,50 €</b></div>
+      <div class="fila"><div>Corte de niños<small>Con Imen · 30 min</small></div><b>12 €</b></div>
+    </div>
+    <div class="bloque destacado">
+      <h3>Barba y completos</h3>
+      <div class="fila"><div>Corte completo<small>Pelo + barba + cejas · 1 h</small></div><b>24 €</b></div>
+      <div class="fila"><div>Corte a tijera + arreglo de barba<small>1 h</small></div><b>24 €</b></div>
+      <div class="fila"><div>Corte + afeitado clásico<small>Afeitado completo a navaja · 45 min</small></div><b>17 €</b></div>
+      <div class="fila"><div>Corte + arreglo de barba<small>Perfilado a máquina o navaja · 45 min</small></div><b>16,50 €</b></div>
+      <div class="fila"><div>Afeitado clásico<small>Navaja, toalla caliente y aftershave · 30 min</small></div><b>13 €</b></div>
+      <div class="fila"><div>Arreglo de barba<small>Con aceite o bálsamo · 30 min</small></div><b>12 €</b></div>
+    </div>
+    <div class="bloque">
+      <h3>Higiene facial</h3>
+      <div class="fila"><div>Limpieza facial básica<small>Peeling, exfoliación, extracción, mascarilla e hidratación · 45 min</small></div><b>18 €</b></div>
+      <div class="fila"><div>Limpieza facial profunda<small>1 h</small></div><b>25 €</b></div>
+    </div>
+    <div class="bloque">
+      <h3>Depilación facial</h3>
+      <div class="fila"><div>Cejas con cera o navaja<small>15 min</small></div><b>6 €</b></div>
+      <div class="fila"><div>Diseño de cejas + depilación<small>30 min</small></div><b>12 €</b></div>
+      <div class="fila"><div>Cara completa con cera<small>30 min</small></div><b>18 €</b></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<section id="trabajos">
+  <span class="titulillo">Nuestro trabajo</span>
+  <h2 class="titulo">Trabajos recientes</h2>
+  <div class="galeria">
+    <img src="img/corte_1.jpg" alt="Corte con diseño en el lateral">
+    <img src="img/corte_4.jpg" alt="Platinado con degradado">
+    <img src="img/corte_2.jpg" alt="Corte con textura">
+    <img src="img/corte_7.jpg" alt="Color fantasía azul">
+    <img src="img/corte_3.jpg" alt="Degradado desde atrás">
+    <img src="img/barba.jpg" alt="Barba perfilada">
+    <img src="img/corte_6.jpg" alt="Textura con mechas">
+    <img src="img/corte_5.jpg" alt="Corte con flequillo">
+  </div>
+</section>
+
+<div class="fondo-2">
+<section id="opiniones">
+  <span class="titulillo">Opiniones</span>
+  <h2 class="titulo">267 reseñas en Booksy</h2>
+  <div class="opiniones">
+    <div class="op"><div class="est">★★★★★</div><p>“Pedazo de profesional. La mejor barbería de Melilla.”</p><cite>— Antonio, cliente verificado en Booksy</cite></div>
+    <div class="op"><div class="est">★★★★★</div><p>“Primera visita y me he sentido como si llevase toda la vida allí. ¡100 % recomendable!”</p><cite>— Quino, cliente verificado en Booksy</cite></div>
+    <div class="op"><div class="est">★★★★★</div><p>“Trato 10 siempre que voy con mis peques, tanto Abde como Imen profesionales 100 %. Súper recomendable.”</p><cite>— Samira, clienta verificada en Booksy</cite></div>
+  </div>
+</section>
+</div>
+
+<section id="ubicacion">
+  <span class="titulillo">Visítanos</span>
+  <h2 class="titulo">Horario y ubicación</h2>
+  <div class="info">
+    <div>
+      <span class="domingo">Abrimos de martes a domingo</span>
+      <table class="horario">
+        <tr class="cerrado"><td>Lunes</td><td>Cerrado</td></tr>
+        <tr><td>Martes</td><td>09:30 – 14:00 · 16:00 – 20:00</td></tr>
+        <tr><td>Miércoles</td><td>09:30 – 14:00 · 16:00 – 20:00</td></tr>
+        <tr><td>Jueves</td><td>09:30 – 14:00 · 16:00 – 20:00</td></tr>
+        <tr><td>Viernes</td><td>09:30 – 14:00 · 16:00 – 20:00</td></tr>
+        <tr><td>Sábado</td><td>09:30 – 14:00 · 16:00 – 20:00</td></tr>
+        <tr><td>Domingo</td><td>09:30 – 14:00 · 16:00 – 20:00</td></tr>
+      </table>
+      <p class="dir"><b>Plaza de la Goleta, 5, local 1</b> · 52006 Melilla</p>
+      <p class="dir">Tel / WhatsApp: <b>610 97 66 06</b></p>
+    </div>
+    <div class="mapa"><img src="img/map.png" alt="Mapa de Canarian Barber en Melilla"></div>
+  </div>
+</section>
+
+<div class="cta">
+  <h2>Reserva tu <em>cita</em></h2>
+  <p>Escríbenos por WhatsApp o reserva en Booksy y elige el hueco que mejor te venga.</p>
+  <div class="botones">
+    <a class="btn" href="https://wa.me/34610976606" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+    <a class="btn btn-linea" href="https://booksy.com/es-es/130284_canarian-barber_barberia_71896_melilla" target="_blank" rel="noopener">Reservar en Booksy</a>
+  </div>
+</div>
+
+<footer>© 2026 Canarian Barber · Plaza de la Goleta, 5, Melilla</footer>
+
+<a class="wa-flotante" href="https://wa.me/34610976606" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2zm5.8 14.09c-.24.68-1.43 1.3-1.97 1.35-.5.05-.98.24-3.3-.69-2.79-1.1-4.56-3.95-4.7-4.13-.13-.18-1.12-1.49-1.12-2.85s.71-2.02.97-2.3c.25-.27.55-.34.73-.34h.53c.17 0 .4-.06.62.48.24.56.8 1.94.87 2.08.07.14.12.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.13-.28.28-.12.55.16.27.71 1.17 1.52 1.89 1.05.93 1.93 1.22 2.2 1.36.27.14.43.12.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.6-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.33z"/></svg>
+</a>
+
+</body>
+</html>
